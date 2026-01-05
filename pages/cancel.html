@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Payment Cancelled | Briggs Creations</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+
+    <body>
+        <!-- BETA TEST BANNER -->
+        <div class="beta-banner">
+            ⚠️ <strong>Test Site:</strong> This website is currently under testing.
+            Any orders placed will <strong>not</strong> be fulfilled or charged.
+        </div>
+        <!-- END BETA TEST BANNER -->
+
+        <!-- Header -->
+        <header>
+            <div class="nav">
+                <div class="brand">
+                    <a href="../index.html" class="logo-wrap">
+                        <img src="../assets/Logo_2.png" alt="Briggs Creations logo" class="logo-primary" />
+                        <img src="../assets/Logo_3.png" alt="Briggs Creations wordmark" class="logo-secondary" />
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    ☰
+                </button>
+                <nav class="nav-links">
+                    <a href="shop.html">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="faq.html">FAQs</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="basket.html" class="basket-link">
+                        🛒
+                        <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main>
+
+            <section class="closing-cta">
+                <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 1rem;">
+                    Payment cancelled
+                </h1>
+
+                <p style="max-width: 48ch; margin: 0 auto 1.5rem;">
+                    Your payment wasn’t completed and no charge has been made.
+                </p>
+
+                <p style="max-width: 48ch; margin: 0 auto 2.5rem;">
+                    If you’d like to try again, your basket is still saved.
+                    If you have any questions or something didn’t feel quite right,
+                    feel free to get in touch.
+                </p>
+
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="basket.html" class="btn-primary">Return to basket</a>
+                    <a href="shop.html" style="font-size: 0.9rem; align-self: center;">
+                        Continue browsing
+                    </a>
+                </div>
+            </section>
+
+            <!-- Trust reassurance -->
+            <section class="trust">
+                <div class="trust-grid">
+                    <div>Secure checkout</div>
+                    <div>No payment taken</div>
+                    <div>UK delivery</div>
+                    <div>14-day returns</div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-inner">
+                <strong>Briggs Creations</strong>
+                <span>Illustrated in the Lake District</span>
+                <span>contact@briggscreations.com</span>
+            </div>
+        </footer>
+        <script src="js/cart.js"></script>
+        <script>
+            const toggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector(".nav-links");
+
+            if (toggle && nav) {
+                toggle.addEventListener("click", () => {
+                    const isOpen = nav.classList.toggle("is-open");
+                    toggle.setAttribute("aria-expanded", isOpen);
+                });
+            }
+        </script>
+        <script>
+            document.addEventListener("contextmenu", function (e) {
+                if (e.target.tagName === "IMG") {
+                    e.preventDefault();
+                }
+            });
+        </script>
+
+    </body>
+
+</html>

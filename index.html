@@ -1,24 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Briggs Creations Home</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Briggs Creations</title>
 
-    <body>
-        <header>
-            <h1>Briggs Creations</h1>
-        </header>
-        <div id="intro">
-            <p>Coming Soon...</p>
+    <!-- Minimal, calm font pairing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+      rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <!-- BETA TEST BANNER -->
+    <div class="beta-banner">
+      ⚠️ <strong>Test Site:</strong> This website is currently under testing.
+      Any orders placed will <strong>not</strong> be fulfilled or charged.
+    </div>
+    <!-- END BETA TEST BANNER -->
+
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <a href="index.html" class="logo-wrap">
+            <img src="assets/Logo_2.png" alt="Briggs Creations logo" class="logo-primary" />
+            <img src="assets/Logo_3.png" alt="Briggs Creations wordmark" class="logo-secondary" />
+          </a>
         </div>
-    </body>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav class="nav-links">
+          <a href="pages/shop.html">Shop</a>
+          <a href="pages/about.html#">About</a>
+          <a href="pages/faq.html">FAQs</a>
+          <a href="pages/contact.html">Contact</a>
+          <a href="pages/basket.html" class="basket-link">
+            🛒
+            <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <h1>Lake District wildlife, illustrated with character</h1>
+          <p>Original animal illustrations inspired by the landscape I live in, printed to order on quality matt paper.
+          </p>
+          <a class="btn-primary" href="pages/shop.html">Shop Prints</a>
+        </div>
+        <div class="hero-image">
+          <img src="assets/Robin.jpg" alt="Featured artwork">
+        </div>
+      </section>
+
+      <!-- Featured Prints -->
+      <section>
+        <div class="section-inner">
+          <div class="section-title">Available Prints</div>
+          <div class="prints-grid prints-carousel">
+            <a class="print-card" href="pages/product.html?id=red-squirrel">
+              <img class="print-card-image" src="assets/Red_Squirrel.jpg"
+                alt="Red Squirrel in the style of Charlotte Briggs">
+              <div class="print-info">Red Squirrel<br><span class="price">£35</span></div>
+            </a>
+
+            <a class="print-card" href="pages/product.html?id=hedgehog">
+              <img class="print-card-image" src="assets/Hedgehog.jpg" alt="Hedgehog in the style of Charlotte Briggs">
+              <div class="print-info">Hedgehog<br><span class="price">£35</span></div>
+            </a>
+
+            <a class="print-card" href="pages/product.html?id=robin">
+              <img class="print-card-image" src="assets/Robin.jpg" alt="Robin in the style of Charlotte Briggs">
+              <div class="print-info">Robin<br><span class="price">£35</span></div>
+            </a>
+
+            <a class="print-card" href="pages/product.html?id=wild-rabbit">
+              <img class="print-card-image" src="assets/Wild_Rabbit.jpg"
+                alt="Wild Rabbit in the style of Charlotte Briggs">
+              <div class="print-info">Wild Rabbit<br><span class="price">£35</span></div>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Trust Builder -->
+      <section class="trust">
+        <div class="trust-grid">
+          <div>A3 size</div>
+          <div>260gsm matt paper</div>
+          <div>Printed to order</div>
+          <div>UK shipping</div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about">
+        <div class="about-inner">
+          <img src="assets/Bio_Pic_1.jpg" alt="Charlotte portrait">
+          <div>
+            <p>I’m Charlotte Briggs, an artist based in the Lake District, where I’ve lived since childhood. Surrounded
+              by mountains, woodland and wildlife, nature has always shaped my work.</p>
+
+            <p>My illustrations focus on native animals, capturing rare moments of connection through eye contact and
+              bold, simplified colour, inspired by the landscapes they call home.</p>
+
+            <a href="#">Read more about Charlotte →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing CTA -->
+      <section class="closing-cta">
+        <p>Explore the full collection of Lake District animal prints.</p>
+        <a class="btn-primary" href="pages/shop.html">View All Prints</a>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <strong>Briggs Creations</strong>
+        <span>Illustrated in the Lake District</span>
+        <span>contact@briggscreations.com</span>
+      </div>
+    </footer>
+    <script src="js/cart.js"></script>
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".nav-links");
+
+      if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+          const isOpen = nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", isOpen);
+        });
+      }
+    </script>
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+        if (e.target.tagName === "IMG") {
+          e.preventDefault();
+        }
+      });
+    </script>
+
+  </body>
 
 </html>

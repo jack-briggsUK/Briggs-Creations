@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Artwork | Briggs Creations</title>
+
+        <!-- Minimal, calm font pairing -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+
+    <body>
+        <!-- BETA TEST BANNER -->
+        <div class="beta-banner">
+            ⚠️ <strong>Test Site:</strong> This website is currently under testing.
+            Any orders placed will <strong>not</strong> be fulfilled or charged.
+        </div>
+        <!-- END BETA TEST BANNER -->
+
+        <header>
+            <div class="nav">
+                <div class="brand">
+                    <a href="../index.html" class="logo-wrap">
+                        <img src="../assets/Logo_2.png" alt="Briggs Creations logo" class="logo-primary" />
+                        <img src="../assets/Logo_3.png" alt="Briggs Creations wordmark" class="logo-secondary" />
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    ☰
+                </button>
+                <nav class="nav-links">
+                    <a href="../pages/shop.html">Shop</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/faq.html">FAQs</a>
+                    <a href="../pages/contact.html">Contact</a>
+                    <a href="../pages/basket.html" class="basket-link">
+                        🛒
+                        <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main id="product-page" class="product-page">
+            <div id="product-error" hidden>
+                <p>Sorry, this artwork could not be found.</p>
+                <a href="../pages/shop.html" class="button">Return to shop</a>
+            </div>
+
+            <section id="product-content" class="product-layout" hidden>
+                <div class="product-image">
+                    <img id="product-image" src="" alt="" />
+                </div>
+
+                <div class="product-details">
+                    <h1 id="product-title"></h1>
+                    <p class="artist-name">by <span id="product-artist"></span></p>
+
+                    <p id="product-description" class="product-description"></p>
+
+                    <ul class="product-specs">
+                        <li><strong>Size:</strong> <span id="product-size"></span></li>
+                        <li><strong>Paper:</strong> <span id="product-paper"></span></li>
+                    </ul>
+
+                    <p class="product-price">
+                        £<span id="product-price"></span>
+                    </p>
+
+                    <button id="add-to-cart" class="btn-primary" type="button">
+                        Add to basket
+                    </button>
+
+                    <p class="delivery-note">
+                        Printed to order • Ships within the UK • Flat £4.99 delivery
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <strong>Briggs Creations</strong>
+                <span>Illustrated in the Lake District</span>
+                <span>contact@briggscreations.com</span>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="../js/products.js"></script>
+        <script src="../js/cart.js"></script>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get("id");
+            const product = getProductById(productId);
+
+            const errorEl = document.getElementById("product-error");
+            const contentEl = document.getElementById("product-content");
+
+            if (!product) {
+                errorEl.hidden = false;
+            } else {
+                document.title = `${product.title} | Briggs Creations`;
+
+                document.getElementById("product-image").src = product.image;
+                document.getElementById("product-image").alt = product.alt;
+
+                document.getElementById("product-title").textContent = product.title;
+                document.getElementById("product-artist").textContent = product.artist;
+                document.getElementById("product-description").textContent = product.description;
+                document.getElementById("product-size").textContent = product.size;
+                document.getElementById("product-paper").textContent = product.paper;
+                document.getElementById("product-price").textContent = product.price.toFixed(2);
+
+                document
+                    .getElementById("add-to-cart")
+                    .addEventListener("click", () => {
+                        addToCart(product.id, 1);
+
+                        // Button feedback
+                        const button = document.getElementById("add-to-cart");
+                        button.classList.add("added");
+
+                        setTimeout(() => {
+                            button.classList.remove("added");
+                        }, 1200);
+
+                        // Basket count bump
+                        const countEl = document.getElementById("cart-count");
+                        if (countEl) {
+                            countEl.classList.remove("bump");
+                            void countEl.offsetWidth; // force reflow
+                            countEl.classList.add("bump");
+                        }
+
+                    });
+
+                contentEl.hidden = false;
+            }
+        </script>
+        <script src="js/cart.js"></script>
+        <script>
+            const toggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector(".nav-links");
+
+            if (toggle && nav) {
+                toggle.addEventListener("click", () => {
+                    const isOpen = nav.classList.toggle("is-open");
+                    toggle.setAttribute("aria-expanded", isOpen);
+                });
+            }
+        </script>
+        <script>
+            document.addEventListener("contextmenu", function (e) {
+                if (e.target.tagName === "IMG") {
+                    e.preventDefault();
+                }
+            });
+        </script>
+    </body>
+
+</html>

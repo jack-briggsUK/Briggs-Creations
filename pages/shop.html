@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Artwork | Briggs Creations</title>
+
+        <!-- Minimal, calm font pairing -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+
+    <body>
+        <!-- BETA TEST BANNER -->
+        <div class="beta-banner">
+            ⚠️ <strong>Test Site:</strong> This website is currently under testing.
+            Any orders placed will <strong>not</strong> be fulfilled or charged.
+        </div>
+        <!-- END BETA TEST BANNER -->
+
+        <header>
+            <div class="nav">
+                <div class="brand">
+                    <a href="../index.html" class="logo-wrap">
+                        <img src="../assets/Logo_2.png" alt="Briggs Creations logo" class="logo-primary" />
+                        <img src="../assets/Logo_3.png" alt="Briggs Creations wordmark" class="logo-secondary" />
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    ☰
+                </button>
+                <nav class="nav-links">
+                    <a href="../pages/shop.html">Shop</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/faq.html">FAQs</a>
+                    <a href="../pages/contact.html">Contact</a>
+                    <a href="../pages/basket.html" class="basket-link">
+                        🛒
+                        <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+                    </a>
+                </nav>
+            </div>
+        </header>
+        <section class="section-inner">
+            <div class="container">
+                <h1>Shop</h1>
+                <p>Illustrated prints inspired by the wildlife and landscapes of the Lake District.</p>
+            </div>
+        </section>
+
+        <!-- Product grid -->
+        <section class="section-inner">
+            <div class="container">
+                <div id="product-grid" class="product-grid">
+                    <!-- Products injected by shop.js -->
+                </div>
+            </div>
+        </section>
+
+
+        <footer>
+            <div class="footer-inner">
+                <strong>Briggs Creations</strong>
+                <span>Illustrated in the Lake District</span>
+                <span>contact@briggscreations.com</span>
+            </div>
+        </footer>
+        <!-- Scripts -->
+        <script src="../js/products.js"></script>
+        <script src="../js/cart.js"></script>
+        <script src="../js/shop.js"></script>
+        <script src="js/cart.js"></script>
+        <script>
+            const toggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector(".nav-links");
+
+            if (toggle && nav) {
+                toggle.addEventListener("click", () => {
+                    const isOpen = nav.classList.toggle("is-open");
+                    toggle.setAttribute("aria-expanded", isOpen);
+                });
+            }
+        </script>
+        <script>
+            document.addEventListener("contextmenu", function (e) {
+                if (e.target.tagName === "IMG") {
+                    e.preventDefault();
+                }
+            });
+        </script>
+    </body>
+
+</html>

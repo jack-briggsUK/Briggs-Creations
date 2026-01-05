@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Artwork | Briggs Creations</title>
+
+        <!-- Minimal, calm font pairing -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+
+    <body>
+        <!-- BETA TEST BANNER -->
+        <div class="beta-banner">
+            ⚠️ <strong>Test Site:</strong> This website is currently under testing.
+            Any orders placed will <strong>not</strong> be fulfilled or charged.
+        </div>
+        <!-- END BETA TEST BANNER -->
+
+        <header>
+            <div class="nav">
+                <div class="brand">
+                    <a href="../index.html" class="logo-wrap">
+                        <img src="../assets/Logo_2.png" alt="Briggs Creations logo" class="logo-primary" />
+                        <img src="../assets/Logo_3.png" alt="Briggs Creations wordmark" class="logo-secondary" />
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    ☰
+                </button>
+                <nav class="nav-links">
+                    <a href="../pages/shop.html">Shop</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/faq.html">FAQs</a>
+                    <a href="../pages/contact.html">Contact</a>
+                    <a href="../pages/basket.html" class="basket-link">
+                        🛒
+                        <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+                    </a>
+                </nav>
+            </div>
+        </header>
+        <main class="basket-page">
+            <h1>Your basket</h1>
+
+            <!-- Empty state -->
+            <section id="empty-basket" hidden>
+                <p>Your basket is currently empty.</p>
+                <a href="shop.html" class="button">Continue shopping</a>
+            </section>
+
+            <!-- Basket content -->
+            <section id="basket-content" hidden>
+                <ul class="basket-items" id="basket-items"></ul>
+
+                <aside class="basket-summary" id="basket-summary">
+                    <h2>Order summary</h2>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>£<span id="subtotal"></span></span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>£<span id="shipping"></span></span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>£<span id="total"></span></span>
+                    </div>
+
+                    <button id="checkout-button" class="btn-primary">
+                        Proceed to checkout
+                    </button>
+
+                    <p class="returns-note">
+                        Returns accepted within 14 days of delivery.
+                    </p>
+                </aside>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <strong>Briggs Creations</strong>
+                <span>Illustrated in the Lake District</span>
+                <span>contact@briggscreations.com</span>
+            </div>
+        </footer>
+        <!-- Scripts -->
+        <script src="../js/products.js"></script>
+        <script src="../js/cart.js"></script>
+
+        <script>
+            const emptyEl = document.getElementById("empty-basket");
+            const contentEl = document.getElementById("basket-content");
+            const itemsEl = document.getElementById("basket-items");
+            const summaryEl = document.getElementById("basket-summary");
+
+            function renderBasket() {
+                const items = getCartItemsWithDetails();
+
+                // Always clear existing DOM
+                itemsEl.innerHTML = "";
+
+                if (!items.length) {
+                    emptyEl.hidden = false;
+                    contentEl.hidden = true;
+                    summaryEl.hidden = true;
+
+                    // Clear totals explicitly (defensive)
+                    document.getElementById("subtotal").textContent = "0.00";
+                    document.getElementById("shipping").textContent = "0.00";
+                    document.getElementById("total").textContent = "0.00";
+
+                    return;
+                }
+
+                emptyEl.hidden = true;
+                contentEl.hidden = false;
+                summaryEl.hidden = false;
+
+                items.forEach(item => {
+                    const li = document.createElement("li");
+                    li.className = "basket-item";
+
+                    li.innerHTML = `
+          <img src="${item.image}" alt="${item.alt}" />
+
+          <div class="item-details">
+            <h3>${item.title}</h3>
+            <p class="item-meta">${item.size} · ${item.paper}</p>
+
+            <button class="remove-item" aria-label="Remove ${item.title}">
+              Remove
+            </button>
+          </div>
+
+          <div class="item-quantity">
+            <label class="visually-hidden" for="qty-${item.id}">
+              Quantity
+            </label>
+            <input
+              id="qty-${item.id}"
+              type="number"
+              min="1"
+              value="${item.quantity}"
+            />
+          </div>
+
+          <div class="item-price">
+            £${item.lineTotal.toFixed(2)}
+          </div>
+        `;
+
+                    li.querySelector(".remove-item").addEventListener("click", () => {
+                        removeFromCart(item.id);
+                    });
+
+                    li.querySelector("input").addEventListener("change", e => {
+                        updateCartQuantity(item.id, parseInt(e.target.value, 10));
+                    });
+
+                    itemsEl.appendChild(li);
+                });
+
+                document.getElementById("subtotal").textContent =
+                    getCartSubtotal().toFixed(2);
+
+                document.getElementById("shipping").textContent =
+                    getShippingCost().toFixed(2);
+
+                document.getElementById("total").textContent =
+                    getCartTotal().toFixed(2);
+            }
+
+            window.addEventListener("cartUpdated", renderBasket);
+            renderBasket();
+
+            document.getElementById("checkout-button").addEventListener("click", () => {
+                // Stripe Checkout will be wired here
+                window.location.href = "checkout.html";
+            });
+        </script>
+        <script src="js/cart.js"></script>
+        <script>
+            const toggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector(".nav-links");
+
+            if (toggle && nav) {
+                toggle.addEventListener("click", () => {
+                    const isOpen = nav.classList.toggle("is-open");
+                    toggle.setAttribute("aria-expanded", isOpen);
+                });
+            }
+        </script>
+        <script>
+            document.addEventListener("contextmenu", function (e) {
+                if (e.target.tagName === "IMG") {
+                    e.preventDefault();
+                }
+            });
+        </script>
+
+    </body>
+
+</html>
