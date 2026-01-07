@@ -90,7 +90,14 @@
                 <span>contact@briggscreations.com</span>
             </div>
         </footer>
-        <script src="js/cart.js"></script>
+        <script src="/js/cart.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                if (typeof clearCart === "function") {
+                    clearCart();
+                }
+            });
+        </script>
         <script>
             const toggle = document.querySelector(".nav-toggle");
             const nav = document.querySelector(".nav-links");
