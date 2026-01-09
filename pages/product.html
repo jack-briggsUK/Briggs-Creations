@@ -64,6 +64,8 @@
                     <p class="artist-name">by <span id="product-artist"></span></p>
 
                     <p id="product-description" class="product-description"></p>
+                    <div id="product-details-long" class="product-details-long"></div>
+
 
                     <ul class="product-specs">
                         <li><strong>Size:</strong> <span id="product-size"></span></li>
@@ -116,6 +118,11 @@
                 document.getElementById("product-title").textContent = product.title;
                 document.getElementById("product-artist").textContent = product.artist;
                 document.getElementById("product-description").textContent = product.description;
+
+                const detailsEl = document.getElementById("product-details-long");
+                if (product.details && detailsEl) {
+                    detailsEl.innerHTML = product.details;
+                }
                 document.getElementById("product-size").textContent = product.size;
                 document.getElementById("product-paper").textContent = product.paper;
                 document.getElementById("product-price").textContent = product.price.toFixed(2);

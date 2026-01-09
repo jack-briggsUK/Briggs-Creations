@@ -5,8 +5,22 @@ window.products = [
     id: "red-squirrel",
     title: "Red Squirrel",
     artist: "Charlotte Briggs",
+    collection: "Lake District Collection",
+
     description:
-      "A detailed illustration capturing the quiet curiosity of a red squirrel in the Lake District woodland.",
+      "Inspired by a personal encounter at Whinlatter, this vibrant print captures the quiet wonder and patient stillness of spotting a red squirrel through rich colors, tactile details, and a direct gaze that invites connection.",
+
+    details: `
+<strong>Red Squirrel – Lake District Collection</strong><br><br>
+
+The red squirrel is one of the Lake District’s most special sights. You’re incredibly fortunate to spot one, and only if you stay quiet enough. Every time I see one, I instinctively go still — watching, waiting, and not daring to move until it disappears back into the trees. This artwork is inspired by that exact moment of pause and quiet excitement.
+
+The piece also holds a personal memory for me. I recently spotted a red squirrel at Whinlatter while out on a family walk. Having explained beforehand how rare and special they are, my toddler’s excitement at seeing one made the moment even more meaningful. That sense of shared wonder is at the heart of this print.
+
+This is one of the most colourful pieces in the collection, with rich reds and warm oranges bringing the squirrel to life. Particular attention was given to the texture of the tail — capturing its softness and movement — while the expressive ears became a detail I especially enjoyed creating. As with all my work, the squirrel’s direct gaze invites connection, set against a clean white background so nothing distracts from the animal itself.
+
+A celebration of patience, presence, and the quiet magic of wildlife, this print is perfect for those who appreciate the rare and fleeting moments nature offers.
+  `,
     price: 35.0,
     size: "A3",
     paper: "260gsm matt",
@@ -17,8 +31,23 @@ window.products = [
     id: "hedgehog",
     title: "Hedgehog",
     artist: "Charlotte Briggs",
+    collection: "Lake District Collection",
+
     description:
-      "A soft, atmospheric illustration of a barn owl drifting through dusk.",
+      "A detailed hedgehog illustration inspired by quiet encounters around Penrith, celebrating subtle moments of connection with British wildlife.",
+
+    details: `
+<strong>Hedgehog – Lake District Collection</strong><br><br>
+
+This hedgehog print is inspired by the quiet moments of spotting hedgehogs roaming the streets around Penrith — sometimes in unexpected places, likely searching for food or finding their way. While these encounters feel special, hedgehogs belong in the wild, and this piece is a gentle tribute to that natural world.<br><br>
+
+Known for their shy and elusive nature, hedgehogs are rarely seen up close. In this artwork, the hedgehog’s direct gaze invites a rare moment of connection, encouraging the viewer to slow down and really notice this often-overlooked creature.<br><br>
+
+Earthy browns and muted tones are layered throughout the piece, echoing the hedgehog’s natural camouflage and grounding the artwork in a sense of calm and familiarity. Considerable time was spent carefully building the texture of the spines, making this one of the most detailed and time-intensive pieces in the collection.<br><br>
+
+Set against a clean white background, the hedgehog becomes the clear focus — quietly strong, understated, and full of character. This print is perfect for those who appreciate the softer, more subtle beauty of wildlife and the small moments nature offers.
+  `,
+
     price: 35.0,
     size: "A3",
     paper: "260gsm matt",
@@ -29,20 +58,49 @@ window.products = [
     id: "robin",
     title: "Robin",
     artist: "Charlotte Briggs",
+    collection: "Lake District Collection",
+
     description:
-      "A peaceful moment by the water’s edge, inspired by Lake District rivers.",
+      "A gentle yet striking robin illustration inspired by winter sightings in the Lake District.",
+
+    details: `
+<strong>Robin – Lake District Collection</strong><br><br>
+
+Gentle yet striking, this robin print is inspired by the many winter robins I see close to home in the Lake District — often plump, full of character, and quietly confident. The robin has long been a symbol of comfort and remembrance for many people, particularly around Christmas, and this piece is intended to hold that sense of warmth and connection.<br><br>
+
+The robin’s direct gaze invites you to pause and feel drawn in, while its vibrant red breast stands boldly against a clean white background. The colours are intentionally exaggerated and interpretive, allowing the character of the bird to shine through while keeping the focus entirely on the animal itself.<br><br>
+
+This piece was the very first artwork created for the collection and helped shape the direction and intention behind all the prints that followed. It remains my personal favourite — a calm, gentle presence designed to bring meaning and quiet joy into a space.
+  `,
+
     price: 35.0,
     size: "A3",
     paper: "260gsm matt",
     image: "../assets/Robin.jpg",
     alt: "Robin in the style of Charlotte Briggs",
   },
+
   {
     id: "wild-rabbit",
     title: "Wild Rabbit",
     artist: "Charlotte Briggs",
+    collection: "Lake District Collection",
+
     description:
-      "A peaceful moment by the water’s edge, inspired by Lake District rivers.",
+      "This print captures a rare moment of stillness and intimate connection, using earthy tones and a direct gaze to highlight the gentle, watchful presence of a wild rabbit.",
+
+    details: `
+<strong>Wild Rabbit – Lake District Collection</strong><br><br>
+
+Wild rabbits are more often seen darting away at speed, disappearing into hedgerows and long grass before you’ve had time to take them in. This print captures a different moment — one of stillness — offering an angle that feels rare and quietly intimate.
+
+Naturally shy and alert, the rabbit holds a gentle presence. Its long ears are often the first feature the viewer notices, standing tall and attentive, reflecting the animal’s constant awareness of its surroundings. There’s a softness to the rabbit that contrasts with its instinct to flee, creating a calm yet watchful energy within the piece.
+
+Earthy browns and natural tones are used throughout to echo the rabbit’s ability to blend into its habitat. These colours keep the artwork grounded, while the clean white background allows the rabbit itself to remain the clear focus, drawing the viewer in without distraction.
+
+As with all the prints in this collection, the rabbit’s direct gaze creates a moment of connection — a pause before movement, inviting the viewer to linger just a little longer.
+
+  `,
     price: 35.0,
     size: "A3",
     paper: "260gsm matt",
