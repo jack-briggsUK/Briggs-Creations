@@ -79,7 +79,6 @@ This piece was the very first artwork created for the collection and helped shap
     image: "../assets/Robin.jpg",
     alt: "Robin in the style of Charlotte Briggs",
   },
-
   {
     id: "wild-rabbit",
     title: "Wild Rabbit",
@@ -106,6 +105,33 @@ As with all the prints in this collection, the rabbit’s direct gaze creates a 
     paper: "260gsm matt",
     image: "../assets/Wild_Rabbit.jpg",
     alt: "Wild Rabbit in the style of Charlotte Briggs",
+  },
+    {
+    id: "brown-alpaca",
+    title: "Brown Alpaca",
+    artist: "Charlotte Briggs",
+    collection: "Lake District Collection",
+
+    description:
+      "This print captures a rare moment of stillness and intimate connection, using earthy tones and a direct gaze to highlight the gentle, watchful presence of a wild rabbit.",
+
+    details: `
+<strong>Brown Alpaca – Lake District Collection</strong><br><br>
+
+While not a wild native of the Lake District, alpacas have become an increasingly familiar and much-loved sight in recent years. With several local businesses now offering opportunities to walk and feed them, these gentle animals have found their own place within the landscape.
+
+There’s something naturally calming about an alpaca. Their quiet nature and steady gaze create an immediate sense of ease, which is what I wanted to capture in this piece. The direct eye contact invites connection, allowing the viewer to share a quiet moment with an animal that feels both curious and composed.
+
+Soft, earthy tones and subtle variations in texture were used to reflect the alpaca’s thick fleece, while still keeping the style bold and graphic. As with the rest of the collection, the clean white background ensures the focus remains entirely on the animal — its expression, its character, and its presence.
+
+This print celebrates the evolving character of the Lake District — where tradition meets new experiences — and the simple joy of spending time close to animals.
+
+  `,
+    price: 35.0,
+    size: "A3",
+    paper: "260gsm matt",
+    image: "../assets/Brown_Alpaca.jpg",
+    alt: "Brown Alpaca in the style of Charlotte Briggs",
   }
 ];
 

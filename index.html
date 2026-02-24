@@ -18,10 +18,10 @@
 
   <body>
     <!-- BETA TEST BANNER -->
-    <div class="beta-banner">
+    <!-- <div class="beta-banner">
       ⚠️ <strong>Test Site:</strong> This website is currently under testing.
       Any orders placed will <strong>not</strong> be fulfilled or charged.
-    </div>
+    </div> -->
     <!-- END BETA TEST BANNER -->
 
     <header>
@@ -68,30 +68,8 @@
       <section>
         <div class="section-inner">
           <div class="section-title">Available Prints</div>
-          <div class="prints-grid prints-carousel">
-            <a class="print-card" href="pages/product.html?id=red-squirrel">
-              <img class="print-card-image" src="assets/Red_Squirrel.jpg"
-                alt="Red Squirrel in the style of Charlotte Briggs">
-              <div class="print-info">Red Squirrel<br><span class="price">£35</span></div>
-            </a>
-
-            <a class="print-card" href="pages/product.html?id=hedgehog">
-              <img class="print-card-image" src="assets/Hedgehog.jpg" alt="Hedgehog in the style of Charlotte Briggs">
-              <div class="print-info">Hedgehog<br><span class="price">£35</span></div>
-            </a>
-
-            <a class="print-card" href="pages/product.html?id=robin">
-              <img class="print-card-image" src="assets/Robin.jpg" alt="Robin in the style of Charlotte Briggs">
-              <div class="print-info">Robin<br><span class="price">£35</span></div>
-            </a>
-
-            <a class="print-card" href="pages/product.html?id=wild-rabbit">
-              <img class="print-card-image" src="assets/Wild_Rabbit.jpg"
-                alt="Wild Rabbit in the style of Charlotte Briggs">
-              <div class="print-info">Wild Rabbit<br><span class="price">£35</span></div>
-            </a>
+          <div id="featured-prints-grid" class="prints-grid prints-carousel">
           </div>
-
         </div>
       </section>
 
@@ -116,7 +94,7 @@
             <p>My illustrations focus on native animals, capturing rare moments of connection through eye contact and
               bold, simplified colour, inspired by the landscapes they call home.</p>
 
-            <a href="#">Read more about Charlotte →</a>
+            <a href="/pages/about.html">Read more about Charlotte →</a>
           </div>
         </div>
       </section>
@@ -133,9 +111,11 @@
       <div class="footer-inner">
         <strong>Briggs Creations</strong>
         <span>Illustrated in the Lake District</span>
-        <span>contact@briggscreations.com</span>
+        <span><a href="mailto:contact@briggscreations.com">contact@briggscreations.com</a></span>
       </div>
     </footer>
+
+
     <script src="js/cart.js"></script>
     <script>
       const toggle = document.querySelector(".nav-toggle");
@@ -152,6 +132,45 @@
       document.addEventListener("contextmenu", function (e) {
         if (e.target.tagName === "IMG") {
           e.preventDefault();
+        }
+      });
+    </script>
+
+    <script src="js/products.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Define the exact subset of products you want to show on the homepage
+        const featuredIds = ['brown-alpaca', 'red-squirrel', 'hedgehog', 'wild-rabbit'];
+        const grid = document.getElementById("featured-prints-grid");
+
+        if (grid && window.products) {
+          featuredIds.forEach(id => {
+            // Find the product in products.js
+            const product = window.getProductById(id);
+
+            if (product) {
+              // Create the card
+              const card = document.createElement("a");
+              card.className = "print-card";
+              card.href = `pages/product.html?id=${product.id}`;
+
+              // Fix the image path: 
+              // products.js uses "../assets/" for pages inside the /pages/ folder.
+              // Since index.html is in the root directory, we need to remove the "../"
+              const imagePath = product.image.replace("../", "");
+
+              // Format the price to have no decimals if it's a whole number, matching your original design
+              const formattedPrice = product.price % 1 === 0 ? product.price.toFixed(0) : product.price.toFixed(2);
+
+              card.innerHTML = `
+                <img class="print-card-image" src="${imagePath}" alt="${product.title} in the style of Charlotte Briggs">
+                <div class="print-info">${product.title}<br><span class="price">£${formattedPrice}</span></div>
+              `;
+
+              grid.appendChild(card);
+            }
+          });
         }
       });
     </script>
