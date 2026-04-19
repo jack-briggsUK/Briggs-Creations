@@ -155,7 +155,7 @@ As with the rest of the collection, this piece is about connection — holding a
     price: 35.0,
     size: "A3",
     paper: "260gsm matt",
-    image: "../assets/fox.jpg",
+    image: "../assets/Fox.jpg",
     alt: "Fox in the style of Charlotte Briggs",
   }
 ];
