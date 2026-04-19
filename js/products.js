@@ -133,6 +133,31 @@ This print celebrates the evolving character of the Lake District — where trad
     image: "../assets/Brown_Alpaca.jpg",
     alt: "Brown Alpaca in the style of Charlotte Briggs",
   }
+ {
+    id: "fox",
+    title: "Fox",
+    artist: "Charlotte Briggs",
+    collection: "Lake District Collection",
+
+    description:
+      "This print captures a rare moment of stillness and intimate connection, using earthy tones and a direct gaze to highlight the gentle, watchful presence of a wild rabbit.",
+
+    details: `
+<strong>Fox – Lake District Collection</strong><br><br>
+
+Foxes are a familiar yet fleeting presence in the Lake District — most often seen as a quick flash of movement before they disappear into the landscape. I’ve only ever caught brief glimpses of them here, usually as they’re running away. Interestingly, the only time I’ve seen a fox up close was in a city, where they seemed far more confident. That contrast stayed with me while creating this piece. This artwork captures a moment that feels rare in the wild — a fox that pauses, turns, and meets your gaze. The eyes are the true focus here, drawing the viewer in and creating a sense of quiet intensity. There’s a balance of curiosity and caution in that expression, reflecting the fox’s natural character.
+
+The rich oranges of the fur have been deliberately exaggerated, enhancing the warmth and vibrancy of one of the fox’s most recognisable features. Set against a clean white background, the colour and detail stand out, allowing the fox’s presence to take centre stage.
+
+As with the rest of the collection, this piece is about connection — holding a moment that is usually gone too quickly, and inviting the viewer to pause and experience it for a little longer.
+
+  `,
+    price: 35.0,
+    size: "A3",
+    paper: "260gsm matt",
+    image: "../assets/fox.jpg",
+    alt: "Fox in the style of Charlotte Briggs",
+  }
 ];
 
 window.getProductById = function (id) {
