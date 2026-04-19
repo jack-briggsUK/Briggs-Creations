@@ -113,7 +113,7 @@ As with all the prints in this collection, the rabbit’s direct gaze creates a 
     collection: "Lake District Collection",
 
     description:
-      "This print captures a rare moment of stillness and intimate connection, using earthy tones and a direct gaze to highlight the gentle, watchful presence of a wild rabbit.",
+      "This print captures a warm and approachable moment, using soft tones and a direct gaze to showcase the alpaca’s gentle and inquisitive personality.",
 
     details: `
 <strong>Brown Alpaca – Lake District Collection</strong><br><br>
@@ -140,7 +140,7 @@ This print celebrates the evolving character of the Lake District — where trad
     collection: "Lake District Collection",
 
     description:
-      "This print captures a rare moment of stillness and intimate connection, using earthy tones and a direct gaze to highlight the gentle, watchful presence of a wild rabbit.",
+      "This print captures a rare moment of stillness and quiet intensity, using rich, exaggerated oranges and a direct gaze to highlight the fox’s alert and elusive nature.",
 
     details: `
 <strong>Fox – Lake District Collection</strong><br><br>
