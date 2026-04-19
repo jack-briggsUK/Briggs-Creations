@@ -132,7 +132,7 @@ This print celebrates the evolving character of the Lake District — where trad
     paper: "260gsm matt",
     image: "../assets/Brown_Alpaca.jpg",
     alt: "Brown Alpaca in the style of Charlotte Briggs",
-  }
+  },
  {
     id: "fox",
     title: "Fox",
